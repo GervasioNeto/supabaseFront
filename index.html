@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Product CRUD</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header>
+    <h1>CRUD de Produtos</h1>
+  </header>
+
+  <!-- Formulário para adicionar produto -->
+  <section class="form-section">
+    <form id="add-product-form">
+      <h2>Adicionar Produto</h2>
+      <label for="name">Nome:</label>
+      <input type="text" id="name" name="name" required>
+
+      <label for="price">Preço:</label>
+      <input type="number" id="price" name="price" required step="0.01">
+
+      <label for="description">Descrição:</label>
+      <textarea id="description" name="description" required></textarea>
+
+      <button type="submit">Adicionar</button>
+    </form>
+  </section>
+
+  <!-- Formulário para atualizar produto -->
+  <section class="form-section" id="update-product-form" style="display: none;">
+    <form>
+      <h2>Atualizar Produto</h2>
+      <input type="hidden" id="update-id">
+      <label for="update-name">Nome:</label>
+      <input type="text" id="update-name" name="name" required>
+
+      <label for="update-price">Preço:</label>
+      <input type="number" id="update-price" name="price" required step="0.01">
+
+      <label for="update-description">Descrição:</label>
+      <textarea id="update-description" name="description" required></textarea>
+
+      <button type="submit">Atualizar</button>
+    </form>
+  </section>
+
+  <!-- Buscar Produto por ID -->
+  <section class="search-section">
+    <h2>Buscar Produto por ID</h2>
+    <input type="text" id="product-id" required placeholder="ID do Produto">
+    <button id="search-button">Buscar</button>
+  </section>
+
+  <!-- Contêiner para exibir o produto -->
+  <div id="product-container"></div>
+
+
+  <!-- Lista de produtos -->
+  <section class="products-list">
+    <ul id="products"></ul>
+  </section>
+
+  <script src="app.js"></script>
+  <script>
+    // Chama fetchProducts() ao carregar a página
+    window.addEventListener('load', fetchProducts);
+  </script>
+</body>
+</html>
